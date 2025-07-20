@@ -27,6 +27,8 @@ rg
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+# Workarounds for missing packages I happen to encounter
+python-lxml
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
