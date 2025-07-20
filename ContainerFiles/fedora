@@ -1,0 +1,15 @@
+FROM registry.fedoraproject.org/fedora-toolbox:42
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with the toolbox or distrobox command" \
+      summary="kde stuff" \
+      maintainer="renner"
+
+# Copy the setup scripts and package list
+COPY ../scripts/fedora.sh /
+COPY ../packages/fedora.packages /
+
+# Run the setup scripts
+RUN sed -i "s/enabled=1/enabled=0/" /etc/yum.repos.d/fedora-cisco-openh264.repo
+RUN chmod +x fedora.sh && /fedora.sh
+RUN rm /fedora.sh /fedora.packages
