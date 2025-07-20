@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         containerfile: 
-          - fedora
+          - kde-dev
        #- fedora-example # Included as an example to demonstrate multi-image builds, uncomment to build the fedora-example container too
     steps:
       # Clone code to runner
