@@ -79,16 +79,16 @@ jobs:
           registry: ${{ steps.registry_case.outputs.lowercase }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
-            
+          extra-args: |
+            --disable-content-trust
+            --compression-format=zstd:chunked
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          extra-args: |
-            --disable-content-trust
-            --compression-format=zstd:chunked
             
       # Sign container
       - name: Install cosign
