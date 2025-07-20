@@ -1,3 +1,3 @@
 # kde-dev container based on Fedora
 
-Includes kde-builder, ripgrep, zsh, git, neovim
+This includes all build dependencies of kde-builder and has tools I personally like like ripgrep, zsh, git, neovim, starship
