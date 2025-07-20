@@ -28,7 +28,10 @@ zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
 # Workarounds for missing packages I happen to encounter
+# breeze-icons
 python-lxml
+# karchive
+zstd
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
