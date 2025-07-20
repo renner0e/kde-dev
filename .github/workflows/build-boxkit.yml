@@ -86,6 +86,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          extra-args: |
+            --disable-content-trust
+            --compression-format=zstd:chunked
             
       # Sign container
       - name: Install cosign
