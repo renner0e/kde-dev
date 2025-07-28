@@ -35,6 +35,7 @@ python-lxml
 zstd
 # kwin
 libei-devel
+qt6-qtdeclarative-static
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
