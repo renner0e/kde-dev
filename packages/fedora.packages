@@ -1,6 +1,7 @@
 # Stuff I like
 ShellCheck
 black
+ccache
 fd-find
 g++
 gcc
@@ -16,6 +17,7 @@ meson
 nvim
 pylint
 python3-pip
+rg
 ripgrep
 shfmt
 source-foundry-hack-fonts
@@ -23,7 +25,6 @@ sqlite
 vim
 yamllint
 zsh
-rg
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
