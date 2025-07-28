@@ -33,6 +33,8 @@ zsh-syntax-highlighting
 python-lxml
 # karchive
 zstd
+# kwin
+libei-devel
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
