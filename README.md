@@ -21,6 +21,10 @@ Setup the distrobox:
 distrobox assemble create --file ./distrobox.ini
 ```
 
+```
+distrobox enter kde-dev
+```
+
 in the distrobox:
 
 ```
