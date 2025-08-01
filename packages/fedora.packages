@@ -37,6 +37,7 @@ zstd
 libei-devel
 qt6-qtdeclarative-static
 qt-devel-private
+libeis
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
