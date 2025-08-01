@@ -28,6 +28,10 @@ zsh
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+# RPM stuff
+spectool
+rpmbuild
+fedpkg
 # Workarounds for missing packages I happen to encounter
 # breeze-icons
 python-lxml
