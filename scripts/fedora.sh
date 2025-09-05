@@ -14,4 +14,6 @@ ln -sf /usr/share/kde-builder/kde-builder /usr/bin/
 cd /usr/share/kde-builder
 pip install pipenv
 
+dnf copr disable -y atim/starship
+
 yes | kde-builder --install-distro-packages
