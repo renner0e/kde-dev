@@ -35,6 +35,8 @@ fedpkg
 # Workarounds for missing packages I happen to encounter
 # breeze-icons
 python-lxml
+python-pyside6
+hunspell-devel
 # karchive
 zstd
 # kwin
@@ -42,6 +44,10 @@ libei-devel
 qt6-qtdeclarative-static
 qt-devel-private
 libeis
+# qca
+qt6-qt5compat-devel
+# breeze cuz I'm not a psychopath
+plasma-breeze
 # Stuff distrobox needs for instant launch
 bash-completion
 bc
