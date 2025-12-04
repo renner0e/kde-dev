@@ -17,3 +17,4 @@ pip install pipenv
 dnf copr disable -y atim/starship
 
 yes | kde-builder --install-distro-packages
+dnf builddep plasma-workspace -y
