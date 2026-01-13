@@ -5,7 +5,6 @@ ccache
 fd-find
 g++
 gcc
-git-absorb
 git-clang-format
 git-delta
 inotify-tools
@@ -24,7 +23,6 @@ source-foundry-hack-fonts
 sqlite
 vim
 yamllint
-zsh
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
