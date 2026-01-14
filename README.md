@@ -14,6 +14,11 @@ curl 'https://invent.kde.org/sdk/kde-builder/-/raw/master/scripts/initial_setup.
 bash initial_setup.sh
 ```
 
+Create kde-builder default config (only once)
+```
+kde-builder --generate-config
+```
+
 
 Setup the distrobox:
 
