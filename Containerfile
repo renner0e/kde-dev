@@ -6,10 +6,10 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="renner"
 
 # Copy the setup scripts and package list
-COPY ../scripts/fedora.sh /
-COPY ../packages/fedora.packages /
+COPY ../setup.sh /
+COPY ../packages.list /
 
 # Run the setup scripts
 RUN sed -i "s/enabled=1/enabled=0/" /etc/yum.repos.d/fedora-cisco-openh264.repo
-RUN chmod +x fedora.sh && /fedora.sh
-RUN rm /fedora.sh /fedora.packages
+RUN chmod +x setup.sh && /setup.sh
+RUN rm /setup.sh /packages.list
