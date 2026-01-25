@@ -58,9 +58,13 @@ kde-builder plasma-desktop
 
 on the host:
 
+This will install a session file into `/usr/local/share/wayland-sessions`
+
 ```
 just session
 ```
+
+This should be all, now you can log out and select Plasma Development session in SDDM.
 
 <img width="2141" height="732" alt="image" src="https://github.com/user-attachments/assets/afabcf3e-ddfd-4038-9aa7-96822fea6c13" />
 
