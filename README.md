@@ -61,3 +61,6 @@ on the host:
 ```
 just session
 ```
+
+<img width="2141" height="732" alt="image" src="https://github.com/user-attachments/assets/afabcf3e-ddfd-4038-9aa7-96822fea6c13" />
+
