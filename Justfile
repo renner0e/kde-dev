@@ -8,7 +8,7 @@ default:
 session:
     #!/usr/bin/env bash
     set -eou pipefail
-    if [ "$(systemd-detect-virt)" != "none" ]; then
+    if [ "$(systemd-detect-virt --container)" != "none" ]; then
       echo "Run this script only on the host. This won't work inside a container!"
       exit 1
     fi
