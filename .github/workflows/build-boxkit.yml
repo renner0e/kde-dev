@@ -9,6 +9,7 @@ on:
       - main
     paths-ignore: # don't rebuild on documentation change
       - '**.md'
+      - Justfile
   schedule:
     - cron: '0 0 * * TUE'
 

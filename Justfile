@@ -1,3 +1,5 @@
+# This is not a buildsystem, this is purely a convenience script
+
 [private]
 default:
     @just --choose
@@ -32,3 +34,10 @@ session:
     echo "Complete! Log out to see the Plasma development session in SDDM"
 
 alias install-kde-development-session := session
+
+# Downloads KDE Linux ccache tarball
+ccache:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  mkdir -p "$HOME/.cache/ccache"
+  curl -L https://storage.kde.org/kde-linux-packages/testing/ccache/ccache.tar | tar -x -C "$HOME/.cache/ccache" --strip-components=1
