@@ -64,8 +64,9 @@ just session
 ```
 
 This should be all, now you can log out and select Plasma Development session in SDDM.
+<img width="445" height="314" alt="image" src="https://github.com/user-attachments/assets/4a9998ac-2456-4a69-9207-dcf14a309ab2" />
 
-<img width="2141" height="732" alt="image" src="https://github.com/user-attachments/assets/afabcf3e-ddfd-4038-9aa7-96822fea6c13" />
+<img width="1080" height="366" alt="image" src="https://github.com/user-attachments/assets/afabcf3e-ddfd-4038-9aa7-96822fea6c13" />
 
 # Goodies
 
