@@ -41,6 +41,14 @@ jobs:
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/boxkit/main/README.md
 
+      - name: setup dnf package cache
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
+        with:
+          path: /var/tmp/buildah-cache-*
+          key: ${{ runner.os }}-buildah-cache-${{ hashFiles('Containerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-buildah-cache-
+
       - name: Build image
         id: build
         run: podman build -t "${IMAGE_NAME}:${IMAGE_TAGS}" -f ./Containerfile .
