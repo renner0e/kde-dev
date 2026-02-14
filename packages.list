@@ -56,7 +56,3 @@ pinentry
 script
 vim
 zsh
-# test
-rocm-hip
-rocm-opencl
-rocm-smi
