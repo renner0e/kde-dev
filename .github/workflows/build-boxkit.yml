@@ -45,9 +45,9 @@ jobs:
         uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
           path: /var/tmp/buildah-cache-*
-          key: ${{ runner.os }}-buildah-cache
+          key: ${{ runner.os }}-buildah-cache-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-buildah-cache-*
+            ${{ runner.os }}-buildah-cache-
 
       - name: Build image
         id: build
