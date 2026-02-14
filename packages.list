@@ -60,3 +60,7 @@ sudo
 vim
 vte-profile
 zsh
+# test
+rocm-hip
+rocm-open
+rocm-smi
