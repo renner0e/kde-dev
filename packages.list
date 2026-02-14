@@ -58,5 +58,5 @@ vim
 zsh
 # test
 rocm-hip
-rocm-open
+rocm-opencl
 rocm-smi
