@@ -48,17 +48,13 @@ qt6-qt5compat-devel
 plasma-breeze
 # Stuff distrobox needs for instant launch
 dnf-plugins-core
-findutils
 fish
 glibc-locale-source
 nss-mdns
 passwd
-pigz
 pinentry
 script
-sudo
 vim
-vte-profile
 zsh
 # test
 rocm-hip
