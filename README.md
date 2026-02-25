@@ -107,7 +107,12 @@ directory structure should look like this:
 ## How do I build this container locally?
 
 ```
-podman build . -t localhost/kde-dev:latest
+podman build --target base -t localhost/kde-dev . 
+```
+
+With rechunking:
+```
+buildah build -t localhost/kde-dev:latest --skip-unused-stages=false -v $(pwd):/run/src --security-opt=label=disable .
 ```
 
 Change all the image refs to the one you chose instead of `ghcr.io/renner0e/kde-dev:latest`

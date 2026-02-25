@@ -51,7 +51,7 @@ jobs:
 
       - name: Build image
         id: build
-        run: podman build -t "${IMAGE_NAME}:${IMAGE_TAGS}" -f ./Containerfile .
+        run: buildah build --skip-unused-stages=false -v $(pwd):/run/src --security-opt=label=disable -t "${IMAGE_NAME}:${IMAGE_TAGS}" -f ./Containerfile .
 
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
