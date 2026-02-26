@@ -77,6 +77,14 @@ jobs:
             --disable-content-trust
             --compression-format=zstd:chunked
 
+      - name: Login to GitHub Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+            
       # Sign container
       - name: Install cosign
         if: github.event_name != 'pull_request'
