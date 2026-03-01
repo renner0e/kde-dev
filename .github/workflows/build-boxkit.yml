@@ -84,7 +84,23 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-            
+
+      - name: Create OCI dir
+        if: github.event_name == 'pull_request'
+        run: |
+          buildah push \
+          "${IMAGE_NAME}:${IMAGE_TAGS}" \
+          --compression-format=zstd \
+          oci-archive:"${IMAGE_NAME}".oci
+
+      - name: Upload OCI dir
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
+        with:
+          name: ${{ env.IMAGE_NAME }}
+          path: ${{ env.IMAGE_NAME }}.oci
+          if-no-files-found: error
+
       # Sign container
       - name: Install cosign
         if: github.event_name != 'pull_request'
