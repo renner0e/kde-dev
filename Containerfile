@@ -21,6 +21,6 @@ RUN dnf config-manager setopt keepcache=0
 FROM quay.io/jlebon/chunkah AS chunkah
 RUN --mount=from=base,src=/,target=/chunkah,ro \
     --mount=type=bind,target=/run/src,rw \
-        chunkah build --max-layers 448 > /run/src/out.ociarchive
+        chunkah build --max-layers 448 --compressed > /run/src/out.ociarchive
 
 FROM oci-archive:out.ociarchive
