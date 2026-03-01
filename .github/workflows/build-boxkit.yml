@@ -90,7 +90,6 @@ jobs:
         run: |
           buildah push \
           "${IMAGE_NAME}:${IMAGE_TAGS}" \
-          --compression-format=zstd \
           oci-archive:"${IMAGE_NAME}".oci
 
       - name: Upload OCI dir
