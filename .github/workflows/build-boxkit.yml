@@ -89,6 +89,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           buildah push \
+          --compression-format=zstd \
           "${IMAGE_NAME}:${IMAGE_TAGS}" \
           oci-archive:"${IMAGE_NAME}".oci
 
@@ -99,6 +100,7 @@ jobs:
           name: ${{ env.IMAGE_NAME }}
           path: ${{ env.IMAGE_NAME }}.oci
           if-no-files-found: error
+          archive: false
 
       # Sign container
       - name: Install cosign
