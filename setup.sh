@@ -13,7 +13,17 @@ cd /usr/share/kde-builder
 pip install pipenv
 
 yes | kde-builder --install-distro-packages
-dnf builddep plasma-desktop -y
+
+# Mostly to get optional deps in and occasional build errors caused by missing deps
+dnf builddep -y \
+  appstream \
+  kf6-attica \
+  kf6-kfilemetadata \
+  kf6-ktexteditor \
+  kf6-solid \
+  kf6-sonnet \
+  plasma-desktop \
+  powerdevil
 
 dnf copr enable -y atim/starship
 dnf copr disable -y atim/starship
