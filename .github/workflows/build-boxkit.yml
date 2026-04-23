@@ -57,11 +57,11 @@ jobs:
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       # https://github.com/macbre/push-to-ghcr/issues/12
       - name: Lowercase Registry
-        if: github.event_name != 'pull_request'
         id: registry_case
-        uses: ASzc/change-string-case-action@d0603cd0a7dd490be678164909f65c7737470a7f # v6
-        with:
-          string: ${{ env.IMAGE_REGISTRY }}
+        env:
+          IMAGE_REGISTRY: ${{ env.IMAGE_REGISTRY }}
+        run: |
+          echo "lowercase=${IMAGE_REGISTRY,,}" >> $GITHUB_OUTPUT
 
       # Push the image to GHCR
       - name: Push To GHCR
