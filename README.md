@@ -23,7 +23,7 @@ This also has a couple additional handy tools:
 - `starship`
 - `zsh`
 
-The container is a little bit chunky and is ~3GiB big with compression. But updates with `podman pull ghcr.io/renner0e/kde-dev:latest` should be somewhat ok due to `zstd:chunked` partial pulls and chunkah[https://github.com/coreos/chunkah]. You can also update the container with `dnf upgrade`. It could be significantly trimmed down tho.
+The container is a little bit chunky and is ~3GiB big with compression. But updates with `podman pull ghcr.io/renner0e/kde-dev:latest` should be somewhat ok due to `zstd:chunked` partial pulls and [chunkah](https://github.com/coreos/chunkah). You can also update the container with `dnf upgrade`. It could be significantly trimmed down tho.
 
 # Setup
 
