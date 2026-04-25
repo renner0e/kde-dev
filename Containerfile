@@ -18,7 +18,7 @@ RUN --mount=type=cache,dst=/var/cache/libdnf5 \
 RUN rm /setup.sh /packages.list
 RUN dnf config-manager setopt keepcache=0
 
-FROM quay.io/coreos/chunkah AS chunkah
+FROM quay.io/coreos/chunkah:dev AS chunkah
 RUN --mount=from=base,src=/,target=/chunkah,ro \
     --mount=type=bind,target=/run/src,rw \
         chunkah build --max-layers 128 --compressed > /run/src/out.ociarchive
