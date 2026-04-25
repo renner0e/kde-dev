@@ -13,7 +13,7 @@ But this also works on traditional systems to not mess up your host with unneces
 - recent enough version of docker/podman (to support [zstd:chunked](https://www.redhat.com/en/blog/faster-container-image-pulls) containers)
 - [distrobox](https://distrobox.it/)
 - [just](https://github.com/casey/just)
-- Quite a bit of storage space
+- Quite a bit of storage space, for me all of `~/kde` takes up 67GB
 
 This also has a couple additional handy tools:
 
@@ -23,7 +23,7 @@ This also has a couple additional handy tools:
 - `starship`
 - `zsh`
 
-The container is a little bit chunky and is around 10GiB big. But updates with `podman pull ghcr.io/renner0e/kde-dev:latest` should be ok due to partial pulls. You can also update the container with `dnf upgrade`.
+The container is a little bit chunky and is ~3GiB big with compression. But updates with `podman pull ghcr.io/renner0e/kde-dev:latest` should be somewhat ok due to `zstd:chunked` partial pulls and chunkah[https://github.com/coreos/chunkah]. You can also update the container with `dnf upgrade`. It could be significantly trimmed down tho.
 
 # Setup
 
@@ -57,13 +57,13 @@ kde-builder plasma-desktop
 
 on the host:
 
-This will install a session file into `/usr/local/share/wayland-sessions`
+This will install a session file into `/usr/local/share/wayland-sessions`, make sure it's writable of course
 
 ```
 just session
 ```
 
-This should be all, now you can log out and select Plasma Development session in SDDM.
+This should be all, now you can log out and select Plasma Development session in SDDM/PLM.
 <img width="445" height="314" alt="image" src="https://github.com/user-attachments/assets/4a9998ac-2456-4a69-9207-dcf14a309ab2" />
 
 <img width="1080" height="366" alt="image" src="https://github.com/user-attachments/assets/afabcf3e-ddfd-4038-9aa7-96822fea6c13" />
@@ -86,28 +86,19 @@ directory structure should look like this:
 ❯ tree -d -L 1 .cache/ccache
 .cache/ccache
 ├── 0
-├── 1
-├── 2
-├── 3
-├── 4
-├── 5
-├── 6
-├── 7
-├── 8
-├── 9
-├── a
-├── b
-├── c
-├── d
-├── e
+├── ...
 ├── f
 └── lock
 ```
 
 ## How do I build this container locally?
 
+Not with docker probably because we rely on the `"FROM oci-archive:` trick"
+
+[See this](https://github.com/coreos/chunkah#splitting-an-image-at-build-time-buildahpodman-only)
+
 ```
-podman build --target base -t localhost/kde-dev . 
+buildah build --target base -t localhost/kde-dev . 
 ```
 
 With rechunking:
@@ -116,6 +107,14 @@ buildah build -t localhost/kde-dev:latest --skip-unused-stages=false -v $(pwd):/
 ```
 
 Change all the image refs to the one you chose instead of `ghcr.io/renner0e/kde-dev:latest`
+
+## It's not compiling/crashing on start
+
+- Probably just missing a library that hasn't been added to Fedora's .spec files or isn't installed here, find out and then install it with `dnf provides "*missing.so*"` or it's missing here, PR `dnf builddep failedproject`
+
+- Linker issues, general build churn due to not clearing out `~/kde/build/project`, fixed by removing it, sometimes you might also want to nuke the relevant part or all of the `~/kde/usr` tree
+
+- Crashes might be a symptom of a missing library as well (), could be that your host provides `example.so.3` but KWin or whatever was compiled with `example.so.4` which is not present in the `~/kde/usr` tree because the container has newer deps than your host, copy them to `~/kde/usr` I guess
 
 # Remove/undo all changes
 
@@ -130,7 +129,7 @@ Delete source code and filesystem tree:
 See your `~/.config/kde-builder.yaml` for all directories.
 
 ```
-rm -rf kde/usr kde/src kde/build
+rm -rf ~/kde/{usr,src,build}
 ```
 
 Delete the container:
