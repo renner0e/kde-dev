@@ -20,9 +20,11 @@ dnf builddep -y \
   kf6-attica \
   kf6-kfilemetadata \
   kf6-ktexteditor \
+  kf6-prison \
   kf6-solid \
   kf6-sonnet \
   plasma-desktop \
+  kwin \
   powerdevil
 
 dnf copr enable -y atim/starship
