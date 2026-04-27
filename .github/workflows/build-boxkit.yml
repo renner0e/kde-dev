@@ -43,7 +43,7 @@ jobs:
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/boxkit/main/README.md
 
       - name: setup dnf package cache
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
         with:
           path: /var/tmp/buildah-cache-*
           key: ${{ runner.os }}-buildah-cache-${{ github.run_id }}
