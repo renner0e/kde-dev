@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-toolbox:43 AS base
+FROM registry.fedoraproject.org/fedora-toolbox:44 AS base
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
       summary="kde stuff" \
