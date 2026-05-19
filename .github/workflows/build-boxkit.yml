@@ -2,6 +2,7 @@ name: build-boxkit
 on:
   workflow_dispatch: # allow manually triggering builds
   pull_request:
+  merge_group:
     branches:
       - main
   push:
