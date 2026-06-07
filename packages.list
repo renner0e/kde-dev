@@ -44,8 +44,9 @@ qt-devel-private
 libeis
 # qca
 qt6-qt5compat-devel
-# breeze cuz I'm not a psychopath
 plasma-breeze
+# cxx-rust-cssparser
+corrosion
 # Stuff distrobox needs for instant launch
 dnf-plugins-core
 fish
