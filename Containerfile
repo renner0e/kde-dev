@@ -10,7 +10,7 @@ COPY ../packages.list /
 
 RUN dnf config-manager setopt keepcache=1
 
-RUN sed -i "s/enabled=1/enabled=0/" /etc/yum.repos.d/fedora-cisco-openh264.repo
+RUN dnf config-manager disable fedora-cisco-openh264
 
 RUN --mount=type=cache,dst=/var/cache/libdnf5 \
     /setup.sh

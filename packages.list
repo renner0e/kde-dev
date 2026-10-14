@@ -18,7 +18,6 @@ pylint
 python3-pip
 rg
 ripgrep
-shfmt
 source-foundry-hack-fonts
 sqlite
 vim
@@ -47,11 +46,12 @@ qt6-qt5compat-devel
 plasma-breeze
 # cxx-rust-cssparser
 corrosion
+# kquickimageditor
+highway-devel
 # Stuff distrobox needs for instant launch
 dnf-plugins-core
 fish
 glibc-locale-source
-nss-mdns
 passwd
 pinentry
 script

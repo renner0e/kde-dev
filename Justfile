@@ -4,10 +4,42 @@
 default:
     @just --choose
 
+build:
+  kde-builder \
+    ark \
+    audiocd-kio \
+    auto-chmod \
+    dolphin \
+    dolphin-plugins \
+    ffmpegthumbs \
+    kde-inotify-survey \
+    kdeconnect-kde \
+    kdegraphics-thumbnailers \
+    kdenetwork-filesharing \
+    kdialog \
+    kimageformats \
+    kio-admin \
+    kio-fuse \
+    kio-gdrive \
+    konlineaccounts \
+    konsole \
+    kpmcore \
+    kunifiedpush \
+    kwalletmanager \
+    package-compatibility-helper \
+    partitionmanager \
+    plasma-setup \
+    plasma-wayland-protocols \
+    pulseaudio-qt \
+    selenium-webdriver-at-spi \
+    spectacle \
+    workspace \
+    xwaylandvideobridge
+
 # moves Wayland session file for development so you can login with SDDM/PLM
 
 # If your system is sensible then /usr/local is writable, even on image based systems
-session:
+session: build
     #!/usr/bin/env bash
     set -eou pipefail
     if [ "$(systemd-detect-virt --container)" != "none" ]; then
@@ -21,7 +53,6 @@ session:
     fi
 
     podman container cp kde-dev:/usr/local/share/wayland-sessions/plasmawayland-dev6.desktop /tmp
-    mkdir -p $HOME/.local/bin
     sudo mkdir -p /usr/local/share/wayland-sessions
     sudo mv /tmp/plasmawayland-dev6.desktop /usr/local/share/wayland-sessions
     sudo chown root:root /usr/local/share/wayland-sessions/plasmawayland-dev6.desktop

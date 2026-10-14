@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -oux pipefail
+set -eoux pipefail
 
 dnf upgrade -y
 grep -v '^#' ./packages.list | xargs dnf install -y
@@ -11,8 +11,6 @@ git clone https://invent.kde.org/sdk/kde-builder.git /usr/share/kde-builder
 ln -sf /usr/share/kde-builder/kde-builder /usr/bin/
 cd /usr/share/kde-builder
 pip install pipenv
-
-yes | kde-builder --install-distro-packages
 
 # Mostly to get optional deps in and occasional build errors caused by missing deps
 dnf builddep -y \
@@ -30,3 +28,7 @@ dnf builddep -y \
 dnf copr enable -y atim/starship
 dnf copr disable -y atim/starship
 dnf -y install --enablerepo="copr:copr.fedorainfracloud.org:atim:starship" starship
+
+dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release terra-gpg-keys
+
+dnf -y install anda terra-mock-configs
